@@ -1,0 +1,59 @@
+/*.................................challenge 1*/
+
+@mixin box($size, $bgColor){
+    width: $size;
+    height: $size / 2;
+    background-color:$bgColor;
+}
+
+.box{
+    @include box(220px,#bada55);
+}
+
+/*.................................challenge 2*/
+
+$colorsList: #aaa, #bbb, #ccc, #ddd;
+
+@each $color in $colorsList{
+    
+    $i: index($colorsList, $color);
+    .container-#{$i} {
+        background-color: $color;
+    }
+}
+
+/*.................................challenge 3*/
+
+%borderSettings{
+    border: 1px solid #000;
+    border-radius: 10px;
+}
+.container {
+    @extend %borderSettings;
+    width: 1280px;
+    background-color: #fff;
+    margin: 0 auto;
+}
+.wrapper {
+    @extend %borderSettings;
+    float: left;
+    position: relative;
+}
+.item {
+    @extend %borderSettings;
+    font-size: 14px;
+    font-family: "Sans Pro", sans-serif;
+    font-weight: 700;
+}
+
+/*.................................challenge 4*/
+
+.container {
+    .listRight {
+        a {
+          &:hover {
+            color: red;    
+          } 
+        }
+    }
+}
